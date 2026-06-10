@@ -1,13 +1,16 @@
 <template>
   <div class="lifestyle">
-    <!-- 导航栏 -->
-    <van-nav-bar title="生活端碳积分" left-arrow @click-left="goBack" />
+    <!-- 固定头部 -->
+    <div class="sticky-header">
+      <!-- 导航栏 -->
+      <van-nav-bar title="生活端碳积分" left-arrow @click-left="goBack" />
 
-    <!-- 进度条 -->
-    <div class="progress-bar">
-      <div class="progress-fill" :style="{ width: progress + '%' }"></div>
+      <!-- 进度条 -->
+      <div class="progress-bar">
+        <div class="progress-fill" :style="{ width: progress + '%' }"></div>
+      </div>
+      <div class="progress-text">已完成 {{ completedItems }} / {{ totalItems }} 项</div>
     </div>
-    <div class="progress-text">已完成 {{ completedItems }} / {{ totalItems }} 项</div>
 
     <!-- 表单区域 -->
     <div class="form-container">
@@ -229,6 +232,12 @@ function goBack() {
   min-height: 100vh;
   background: #f5f5f5;
   padding-bottom: 100px;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .progress-bar {
